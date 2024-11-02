@@ -5,6 +5,7 @@ import fetchContentType from "@/lib/strapi/fetchContentType";
 import { generateMetadataObject } from "@/lib/shared/metadata";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -44,9 +45,16 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body className={inter.className}>
-        <Navbar data={pageData.navbar} locale={locale} />
-        {children}
-        <Footer data={pageData.footer} locale={locale} />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar data={pageData.navbar} locale={locale} />
+          {children}
+          <Footer data={pageData.footer} locale={locale} />
+        </ThemeProvider>
       </body>
     </html>
   );
