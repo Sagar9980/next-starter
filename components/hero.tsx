@@ -1,8 +1,12 @@
 //This is dummy hero section
 import React from "react";
 
-const HeroSection = () => {
-  return <div>Hero section! Seems working Fine</div>;
+const HeroSection = ({ heading, sub_heading, CTAs, locale }: any) => {
+  return (
+    <div>
+      Heading: {heading}, Sub Heading: {sub_heading}
+    </div>
+  );
 };
 
 export default HeroSection;
